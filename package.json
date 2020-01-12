@@ -1,0 +1,31 @@
+{
+  "name": "nodejs.backendnode",
+  "version": "0.0.0",
+  "description": "A Chat as telegram bfb.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zearkiatos/nodejs.backendnode.git"
+  },
+  "keywords": [
+    "chat",
+    "telegram",
+    "server"
+  ],
+  "author": "Pedro Capriles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zearkiatos/nodejs.backendnode/issues"
+  },
+  "homepage": "https://github.com/zearkiatos/nodejs.backendnode#readme",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "express": "4.17.1",
+    "jsdoc": "3.6.3",
+    "morgan": "1.9.1",
+    "nodemon": "^2.0.2"
+  }
+}
