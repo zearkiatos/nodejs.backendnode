@@ -15,7 +15,9 @@ router.get('/message', function(request, response){
 });
 
 router.delete('/message', function(request, response){
-    response.send('Mensaje Añadido');
+    console.log(request.query);
+    console.log(request.body);
+    response.send(`Mensaje ${request.body.text} Añadido correctamente`);
 })
 // app.use('/', function(request, response) {
 //     response.send('I am okay ✅🤖');

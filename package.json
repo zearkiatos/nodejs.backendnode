@@ -4,6 +4,8 @@
   "description": "A Chat as telegram bfb.",
   "main": "server.js",
   "scripts": {
+    "start":"node serve",
+    "start:watch":"nodemon serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
