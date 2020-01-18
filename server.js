@@ -11,6 +11,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(router);
 
 router.get('/message', function(request, response){
+    console.log(request.headers);
+    response.header({
+        "custom-header":"Nuevo valor customizado"
+    })
     response.send('Lista de mensajes');
 });
 
