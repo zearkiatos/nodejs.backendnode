@@ -18,10 +18,10 @@ router.get('/message', function(request, response){
     response.send('Lista de mensajes');
 });
 
-router.delete('/message', function(request, response){
+router.post('/message', function(request, response){
     console.log(request.query);
     console.log(request.body);
-    response.send(`Mensaje ${request.body.text} Añadido correctamente`);
+    response.status(201).send({error: '', body: 'Creado Correctamente'});
 })
 // app.use('/', function(request, response) {
 //     response.send('I am okay ✅🤖');
