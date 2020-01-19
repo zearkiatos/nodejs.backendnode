@@ -36,4 +36,6 @@ app.listen(3000, ()=>{
     console.info('Express was init successfully. ✅🚀');
 });
 
+app.use('/app',express.static('public'));
+
 console.log('The application is listen in http://localhost:3000 ✅🤖')
