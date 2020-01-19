@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-
+const responseType = require('./src/network/response');
 const app = express();
 
 app.use(logger('dev'));
@@ -13,15 +13,20 @@ app.use(router);
 router.get('/message', function(request, response){
     console.log(request.headers);
     response.header({
-        "custom-header":"Nuevo valor customizado"
+        "custom-header":"New customice values."
     })
-    response.send('Lista de mensajes');
+    responseType.success(request, response,'Message List');
 });
 
 router.post('/message', function(request, response){
     console.log(request.query);
     console.log(request.body);
-    response.status(201).send({error: '', body: 'Creado Correctamente'});
+    if(request.query.error == "ok") {
+        responseType.error(request, response, 'Simulate Error.', 401);
+    }
+    else {
+        responseType.success(request, response,'Correct Response.', 201);
+    }
 })
 // app.use('/', function(request, response) {
 //     response.send('I am okay ✅🤖');
