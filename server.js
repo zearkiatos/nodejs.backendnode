@@ -22,7 +22,7 @@ router.post('/message', function(request, response){
     console.log(request.query);
     console.log(request.body);
     if(request.query.error == "ok") {
-        responseType.error(request, response, 'Simulate Error.', 401);
+        responseType.error(request, response, 'Error unexpected.', 500, 'Es solo una simulación de los errores');
     }
     else {
         responseType.success(request, response,'Correct Response.', 201);
