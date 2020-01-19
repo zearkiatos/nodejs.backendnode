@@ -13,19 +13,19 @@ app.use(router);
 router.get('/message', function(request, response){
     console.log(request.headers);
     response.header({
-        "custom-header":"Nuevo valor customizado"
+        "custom-header":"New customice values."
     })
-    responseType.success(request, response,'Lista de Mensajes');
+    responseType.success(request, response,'Message List');
 });
 
 router.post('/message', function(request, response){
     console.log(request.query);
     console.log(request.body);
     if(request.query.error == "ok") {
-        responseType.error(request, response, 'Error Simulado', 401);
+        responseType.error(request, response, 'Simulate Error.', 401);
     }
     else {
-        responseType.success(request, response,'Creado correctamente.', 201);
+        responseType.success(request, response,'Correct Response.', 201);
     }
 })
 // app.use('/', function(request, response) {
