@@ -3,11 +3,11 @@ const responseType = require("../../network/response");
 const controller = require("./controller");
 const router = express.Router();
 router.get("/", function(request, response) {
-  console.log(request.headers);
-  response.header({
-    "custom-header": "New customice values."
-  });
-  responseType.success(request, response, "Message List");
+  controller.getMessages().then((messageList)=>{
+    responseType.success(request, response, messageList, 200);
+  }).catch((error)=>{
+    responseType.error(request, response, 'Unexpected Error', 500, error);
+  })
 });
 
 router.post("/", function(request, response) {
