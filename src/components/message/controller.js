@@ -34,8 +34,26 @@ function updateMessage(id, message) {
   });
 }
 
+function deleteMessage(id) {
+  return new Promise(async (resolve, reject) => {
+    if (!id) {
+      reject("Invalid request data");
+      return false;
+    }
+    store
+      .remove(id)
+      .then(() => {
+        resolve();
+      })
+      .catch(e => {
+        reject(e);
+      });
+  });
+}
+
 module.exports = {
   addMessage,
   getMessages,
-  updateMessage
+  updateMessage,
+  deleteMessage
 };

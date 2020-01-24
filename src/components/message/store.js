@@ -31,11 +31,15 @@ async function updateMessage(id, message) {
   return newMessage;
 }
 
+function deleteMessage(id) {
+  return Model.deleteOne({
+    _id: id
+  })
+}
+
 module.exports = {
   add: addMessage,
   list: getMessages,
-  update: updateMessage
-  //get
-  //update
-  //delete
+  update: updateMessage,
+  remove: deleteMessage
 };

@@ -45,4 +45,16 @@ router.patch("/:id", function(request, response) {
     });
 });
 
+router.delete("/:id", function(request, response) {
+  const { id } = request.params;
+  controller
+    .deleteMessage(id)
+    .then(() => {
+      responseType.success(request, response, `Message with id ${id} was delete`, 200);
+    })
+    .catch(e => {
+      responseType.error(request, response, "Internal Error", 500, e);
+    });
+});
+
 module.exports = router;
