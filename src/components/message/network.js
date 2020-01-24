@@ -3,8 +3,9 @@ const responseType = require("../../network/response");
 const controller = require("./controller");
 const router = express.Router();
 router.get("/", function(request, response) {
+  const filterUser = request.query.user || null;
   controller
-    .getMessages()
+    .getMessages(filterUser)
     .then(messageList => {
       responseType.success(request, response, messageList, 200);
     })
