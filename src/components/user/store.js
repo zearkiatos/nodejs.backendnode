@@ -12,5 +12,5 @@ async function getUsers() {
 
 module.exports = {
   add: addUser,
-  lists: getUsers
+  list: getUsers
 };

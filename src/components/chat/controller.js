@@ -1,6 +1,6 @@
 const store = require("./store");
 
-function addUser(name) {
+function addChat(name) {
   if (!name) {
     return Promise.reject("Invalid request.");
   }
