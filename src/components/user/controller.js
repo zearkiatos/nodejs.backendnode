@@ -11,7 +11,7 @@ function addUser(name) {
 }
 
 function getUsers() {
-  return store.lists();
+  return store.list();
 }
 
 module.exports = {

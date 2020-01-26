@@ -4,9 +4,9 @@ const controller = require("./controller");
 const router = express.Router();
 
 router.post("/", function(request, response) {
-  const { name } = request.body;
+  const { users } = request.body;
   controller
-    .addUser(name)
+    .addChat({ users })
     .then(data => {
       responseType.success(request, response, data, 200);
     })
@@ -17,7 +17,7 @@ router.post("/", function(request, response) {
 
 router.get("/", function(request, response) {
   controller
-    .getUsers()
+    .getChats()
     .then(data => {
       responseType.success(request, response, data, 200);
     })
