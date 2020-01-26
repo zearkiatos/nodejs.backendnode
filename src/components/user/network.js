@@ -12,4 +12,12 @@ router.post('/', function(request, response){
     });
 });
 
+router.get('/', function(request, response){
+    controller.getUsers().then(data =>{
+        responseType.success(request, response,data, 200);
+    }).catch(error =>{
+        responseType.error(request, response, 'Internal error', 500, error)
+    });
+});
+
 module.exports = router;
