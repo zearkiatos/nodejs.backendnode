@@ -2,13 +2,18 @@ const Model = require("./model");
 
 function addChat(chat) {
   const newChat = new Model(chat);
-  console.log(newChat);
   return newChat.save();
 }
 
-async function getChats() {
+async function getChats(userId) {
   return new Promise((resolve, reject) => {
-    Model.find()
+    let filter = {};
+    if (userId) {
+      filter = {
+        users: userId
+      };
+    }
+    Model.find(filter)
       .populate("users")
       .exec((error, populated) => {
         if (error) {
