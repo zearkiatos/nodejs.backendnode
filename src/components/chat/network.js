@@ -6,18 +6,19 @@ const router = express.Router();
 router.post("/", function(request, response) {
   const { users } = request.body;
   controller
-    .addChat({ users })
+    .addChat(users)
     .then(data => {
-      responseType.success(request, response, data, 200);
+      responseType.success(request, response, data, 201);
     })
     .catch(error => {
       responseType.error(request, response, "Internal error", 500, error);
     });
 });
 
-router.get("/", function(request, response) {
+router.get("/:userId", function(request, response) {
+  const {userId} = request.params;
   controller
-    .getChats()
+    .getChats(userId)
     .then(data => {
       responseType.success(request, response, data, 200);
     })

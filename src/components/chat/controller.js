@@ -1,14 +1,17 @@
 const store = require("./store");
 
-function addChat(chat) {
-  if (!chat.users) {
+function addChat(users) {
+  if (!users || !Array.isArray(users)) {
     return Promise.reject("Invalid request.");
   }
+  const chat = {
+      users
+  };
   return store.add(chat);
 }
 
-function getChats() {
-  return store.list();
+function getChats(userId) {
+  return store.list(userId);
 }
 
 module.exports = {

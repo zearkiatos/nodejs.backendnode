@@ -15,7 +15,7 @@ router.get("/", function(request, response) {
 });
 
 router.post("/", function(request, response) {
-  const { user, message } = request.body;
+  const { user, message, chat } = request.body;
   controller
     .addMessage(user, message)
     .then(fullMessage => {
