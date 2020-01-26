@@ -1,20 +1,17 @@
 const store = require("./store");
 
-function addChat(name) {
-  if (!name) {
+function addChat(chat) {
+  if (!chat.users) {
     return Promise.reject("Invalid request.");
   }
-  const user = {
-    name
-  };
-  return store.add(user);
+  return store.add(chat);
 }
 
-function getUsers() {
+function getChats() {
   return store.list();
 }
 
 module.exports = {
-  addUser,
-  getUsers
+  addChat,
+  getChats
 };
