@@ -1,5 +1,5 @@
 const store = require("./store");
-function addMessage(user, message) {
+function addMessage(user, message, chat) {
   return new Promise((resolve, reject) => {
     if (!user || !message || !chat) {
       console.error("[messageController] User or message was not set.");
