@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>WebSocket</title>
+</head>
+<body>
+    <h1>Watch the console.</h1>
+    <div id="message">
+
+    </div>
+    <script>
+        let socket = io.connect('http://localhost:3000',{
+            forceNew: true
+        });
+        socket.on('message', function(data){
+            console.info(data);
+            const container = document.getElementById('message');
+            container.innerHTML = container.innerHTML + data.message +"<br />";
+        });
+    </script>
+</body>
+</html>
