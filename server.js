@@ -6,23 +6,24 @@ const socket = require('./socket');
 const router = require("./src/network/routes");
 const app = express();
 const server = require('http').Server(app);
+const config = require('./config')
 const db = require("./db");
 
 db(
-  `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_URL}:${process.env.DB_PORT}/${process.env.DB_NAME}?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority`
+  config.dbUrl
 );
 app.use(cors());
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-server.listen(3000, () => {
+server.listen(config.port, () => {
   console.info("Express was init successfully. ✅🚀");
 });
 
-app.use("/app", express.static("public"));
+app.use(config.publicRoute, express.static("public"));
 
-console.log("The application is listen in http://localhost:3000 ✅🤖");
+console.log(`The application is listen in ${config.host}:${config.port} ✅🤖`);
 
 socket.connect(server);
 

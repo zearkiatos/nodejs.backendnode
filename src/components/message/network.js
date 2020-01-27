@@ -2,10 +2,11 @@ const express = require("express");
 const multer = require('multer');
 const responseType = require("../../network/response");
 const controller = require("./controller");
+const config = require('../../../config');
 const router = express.Router();
 
 const upload = multer({
-  dest: 'public/files',
+  dest: `public${config.publicRoute}/`,
 });
 router.get("/", function(request, response) {
   const filterUser = request.query.user || null;
